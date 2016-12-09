@@ -5,11 +5,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello Courses Web App</title>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/custom.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/custom/custom.css}"/>
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<button class="btn btn-info">Temporary Button</button>
-<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+<div class="container main">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active">
+                    <a data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li role="presentation">
+                    <a data-toggle="tab" href="#courses">Kurse</a>
+                </li>
+                <li role="presentation">
+                    <a data-toggle="tab" href="#about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div th:include="main/home" th:remove="tag"></div>
+            </div>
+            <div id="courses" class="tab-pane fade">
+                <div th:include="main/courses" th:remove="tag"></div>
+            </div>
+            <div id="about" class="tab-pane fade">
+                <div th:include="main/about" th:remove="tag"></div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
